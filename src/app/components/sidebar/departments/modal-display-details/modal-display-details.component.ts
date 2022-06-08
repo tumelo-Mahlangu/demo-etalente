@@ -17,7 +17,7 @@ export class ModalDisplayDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onNoClick(): void {
+  closeModelOnClick(): void { 
     this.modalRef.close();
   }
 }
