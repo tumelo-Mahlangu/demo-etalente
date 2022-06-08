@@ -15,6 +15,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { ModalDisplayDetailsComponent } from './components/sidebar/departments/modal-display-details/modal-display-details.component';
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { ModalDisplayDetailsComponent } from './components/sidebar/departments/m
   imports: [
     BrowserModule,
     NoopAnimationsModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
     MatSidenavModule,
     MatToolbarModule,
     MatCardModule,
