@@ -1,0 +1,26 @@
+$typography-default-color: white;
+$icon-color: #FFD54F;
+
+mat-list h3, p{
+    margin: 0;
+    color: $typography-default-color;
+}
+mat-list h3{
+    margin-right: 0.8em;
+}
+
+.none-default{
+    position: absolute;
+    right: 0;
+}
+
+.right-arrow-transform{
+    transform: rotate(90deg);
+}
+
+mat-list p , .none-default{
+    color: $icon-color;
+}
+.right-arrow{
+    color: $typography-default-color;
+}

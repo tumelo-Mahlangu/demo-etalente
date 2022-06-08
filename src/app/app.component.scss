@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+}
+
+mat-sidenav-container{
+    height: 100vh;
+    
+}mat-sidenav{
+    width: 290px;
+    background-color: #003366;
+    overflow-y: scroll;
+}
+
+mat-toolbar{
+    position: absolute;
+    top: 0;
+    background-color: antiquewhite;
+}
+mat-sidenav-content{
+    width: auto;
+    background-color: rgb(236, 236, 236);
+}
