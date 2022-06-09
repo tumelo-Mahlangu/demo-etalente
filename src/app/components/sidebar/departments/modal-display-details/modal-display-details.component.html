@@ -8,6 +8,6 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="closeModelOnClick()">Cancel</button>
-    <button mat-button type="submit" [mat-dialog-close]="data.name" cdkFocusInitial>Ok</button>
+    <button mat-button type="submit" (click)="getInputData()" [mat-dialog-close]="data.name">Ok</button>
 </div>
  

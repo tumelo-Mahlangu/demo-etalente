@@ -1,26 +1,39 @@
-$typography-default-color: white;
-$icon-color: #FFD54F;
+@import '../../../../styles.scss';
 
-mat-list h3, p{
-    margin: 0;
-    color: $typography-default-color;
+mat-tree{
+    background-color: $main-primary-color;
 }
 mat-list h3{
     margin-right: 0.8em;
 }
+mat-tree p{
+    color: $main-tertiary-color;
+    margin: 0;
+    font-size: 1rem;
+}
 
-.none-default{
+.mat-icon-add{
     position: absolute;
     right: 0;
+    color: $main-seconday-color;
+}
+.mat-icon-rtl-mirror{
+    color: $main-tertiary-color;
+}
+.mat-edit-icon mat-icon{
+    font-size: 17px;
+}
+.mat-delete-icon mat-icon{
+    font-size: 17px;
+}
+.mat-edit-icon{
+    position: absolute;
+    right: 28px;
+    color: $main-seconday-color;
 }
 
-.right-arrow-transform{
-    transform: rotate(90deg);
-}
-
-mat-list p , .none-default{
-    color: $icon-color;
-}
-.right-arrow{
-    color: $typography-default-color;
+.mat-delete-icon{
+    position: absolute;
+    right: 50px;
+    color: $main-seconday-color;
 }

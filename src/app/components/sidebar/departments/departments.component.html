@@ -1,21 +1,29 @@
-<section>
-    <section>
-        <mat-list role="list">
-            <mat-list-item *ngFor="let department of listOfDepartment">
-                <button type="button" (click)="expandItems()" class="right-arrow" mat-icon-button aria-label="Example icon button with a home icon">
-                    <mat-icon>keyboard_arrow_right</mat-icon>
-                </button>
-                <h3>{{department}}</h3>
-                <i>{{name}}</i>
-                <p>{{numberOfTeamsDepartment}}</p>
-                <button class="none-default" [matMenuTriggerFor]="menu" mat-icon-button aria-label="Example icon button with a home icon">
-                    <mat-icon>more_vert</mat-icon>
-                    <mat-menu #menu="matMenu">
-                        <button (click)="addDetailsOfDepartment()" mat-menu-item>Add {{department}}</button>
-                    </mat-menu>
-                </button>
-            </mat-list-item> 
-        </mat-list>
-    </section>
-</section>
-  
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+        <p>{{node.name}}<p> 
+        <button class="mat-delete-icon" mat-icon-button aria-label="button with more_vert icon">
+            <mat-icon>delete</mat-icon> 
+        </button>
+        <button class="mat-edit-icon" mat-icon-button aria-label="button with more_vert icon">
+            <mat-icon>edit</mat-icon> 
+        </button>
+    </mat-tree-node> 
+    <mat-tree-node 
+        *matTreeNodeDef="let node;when: hasChild"
+        matTreeNodePadding> 
+        <button mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpanded(node) ?
+                    'expand_more' : 'chevron_right'}} 
+            </mat-icon>
+        </button>
+        <p>{{node.name}}</p>
+        <button class="mat-icon-add" [matMenuTriggerFor]="menu" mat-icon-button aria-label="button with more_vert icon">
+            <mat-icon>more_vert</mat-icon>
+            <mat-menu #menu="matMenu">
+                <button (click)="addDetailsOfDepartment()" mat-menu-item>Add {{node.name}}</button>
+            </mat-menu>
+        </button>
+    </mat-tree-node>
+</mat-tree>

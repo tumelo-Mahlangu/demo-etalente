@@ -15,10 +15,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ModalDisplayDetailsComponent } from './components/sidebar/departments/modal-display-details/modal-display-details.component';
+import {MatTreeModule} from '@angular/material/tree';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +27,15 @@ import { ModalDisplayDetailsComponent } from './components/sidebar/departments/m
     DepartmentDetailsComponent,
     DepartmentPerformanceComponent,
     DepartmentsComponent,
-    ModalDisplayDetailsComponent
+    ModalDisplayDetailsComponent,
+    DepartmentsComponent
   ],
   imports: [
     BrowserModule,
     NoopAnimationsModule,
     MatFormFieldModule,
     FormsModule,
+    
     MatInputModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -41,9 +44,10 @@ import { ModalDisplayDetailsComponent } from './components/sidebar/departments/m
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTreeModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, DepartmentsComponent]
 })
 export class AppModule { }

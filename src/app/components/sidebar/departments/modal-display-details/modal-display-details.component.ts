@@ -16,7 +16,9 @@ export class ModalDisplayDetailsComponent implements OnInit {
   
   ngOnInit(): void {
   }
-
+  public getInputData(){
+    console.log(this.data.name);
+  }
   closeModelOnClick(): void { 
     this.modalRef.close();
   }
