@@ -1,18 +1,12 @@
-import { FlatTreeControl } from '@angular/cdk/tree';
+
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ModalDisplayDetailsComponent } from './modal-display-details/modal-display-details.component';
-import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree'
-import { DEPARTMENT_TREE } from '../_mockData';
-import { departmentNode } from '../_mockData';
-
+import {ConfigUnitsService} from '../../../services/config-units.service';
+import { BusinessUnit } from '../_mockData';
 export interface configureData{
+  id: number
   name: string;
-}
-interface childNodeInfoDepartment{
-  expandable: boolean;
-  name: string;
-  level: number;
 }
 
 @Component({
@@ -23,45 +17,43 @@ interface childNodeInfoDepartment{
 export class DepartmentsComponent implements OnInit {
   numberOfTeamsDepartment: number = 0;
   name: string;
+  id: number
+  listOfUnits : BusinessUnit[];
   title : string = "Departments";
-
-  private _transfomer = (listDepartment: departmentNode, level: number) => {
-    return {
-      expandable: !!listDepartment.typeOfDepartment,
-      name: listDepartment.nameOfDepartment,
-      level: level
-    }
-  }
-
-  treeControl = new FlatTreeControl<childNodeInfoDepartment>(
-    node => node.level,
-    node => node.expandable,
-  );
-
-  treeFlattener = new MatTreeFlattener(
-    this._transfomer,
-    node => node.level,
-    node => node.expandable,
-    node => node.typeOfDepartment,
-  );
-  
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-  constructor(public modal: MatDialog) { 
-    this.dataSource.data = DEPARTMENT_TREE;
-  }
-
-  hasChild = (_:number, departments: childNodeInfoDepartment) => departments.expandable;
-  ngOnInit(): void {
+  constructor(public modal: MatDialog, private configuredUnitsService: ConfigUnitsService) { 
     
+  }
+  ngOnInit(): void {
+    this.getUnitsData();
+  }
+  
+  getUnitsData(){
+    this.configuredUnitsService.getUnits()
+    .subscribe(data => {
+      this.listOfUnits = data;
+    }) 
+  }
+
+  updateUnits(id:number, name: string):void{
+    let currentItem = this.listOfUnits.find(unit => {return unit.id === id})
+    console.log(currentItem);
+    this.configuredUnitsService.updateUnits(id, name)
+  }
+  deleteUnits(id: number) : void{
+    this.configuredUnitsService.removeUnits(id)
+    .subscribe(
+      data =>{
+      data.next(alert('Successfully deleted'));
+      data.error(alert('There was a failer in deleting the items'));
+    })
+    window.location.reload();
   }
 
   public addDetailsOfDepartment(): void{
     const modalRef = this.modal.open(ModalDisplayDetailsComponent, {
       width: '500px',
-      data: {name : this.name}
+      data: {name : this.name, id: this.id},
     });
-
-
     modalRef.afterClosed().subscribe(result =>{
       this.name = result;
     })

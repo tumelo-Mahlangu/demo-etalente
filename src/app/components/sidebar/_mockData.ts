@@ -1,19 +1,4 @@
-export interface departmentNode{
-    nameOfDepartment: string;
-    typeOfDepartment?: departmentNode[];
+export interface BusinessUnit{
+  id: number
+  name : string
 }
-  
-export const DEPARTMENT_TREE : departmentNode[] = [
-    {
-      nameOfDepartment: 'Team',
-      typeOfDepartment: [{nameOfDepartment : 'Software'}, {nameOfDepartment : 'Markerting'}]
-    },
-    {
-      nameOfDepartment: 'Business Unit',
-      typeOfDepartment: [{nameOfDepartment : 'Momentum'}, {nameOfDepartment : 'SARS'}]
-    },
-    {
-      nameOfDepartment: 'Departments',
-      typeOfDepartment: []
-    }
-];

@@ -1,13 +1,15 @@
-<h1 mat-dialog-title>Create {{data.name}}</h1>
-<div mat-dialog-content>
-    <p>This is when you add a Teams that are related to a department, etc</p>
-    <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input type="text" matInput name="name" [(ngModel)]="data.name"/>
-    </mat-form-field>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="closeModelOnClick()">Cancel</button>
-    <button mat-button type="submit" (click)="getInputData()" [mat-dialog-close]="data.name">Ok</button>
-</div>
- 
+<section>
+    <h1 mat-dialog-title>Create a Business Unit</h1>
+    <div mat-dialog-content>
+        <p>This is when you add a Business Units that are related to a department, etc</p>
+        <mat-form-field appearance="outline">
+            <mat-label>Business Unit name</mat-label>
+            <input type="text" placeholder="eTalente" matInput name="name" [(ngModel)]="input.name"/>
+        </mat-form-field>
+        <p>A business unit is an organisation or company that has different departments , team and individuals</p>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button color="primary" (click)="closeModelOnClick()">Cancel</button>
+        <button mat-button type="submit" (click)="getInputData()" [mat-dialog-close]="input.name">Ok</button>
+    </div>
+</section>

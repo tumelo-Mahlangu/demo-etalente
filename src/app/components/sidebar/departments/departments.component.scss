@@ -1,39 +1,47 @@
 @import '../../../../styles.scss';
 
-mat-tree{
-    background-color: $main-primary-color;
-}
-mat-list h3{
-    margin-right: 0.8em;
-}
-mat-tree p{
-    color: $main-tertiary-color;
-    margin: 0;
-    font-size: 1rem;
-}
-
-.mat-icon-add{
-    position: absolute;
-    right: 0;
-    color: $main-seconday-color;
-}
-.mat-icon-rtl-mirror{
-    color: $main-tertiary-color;
-}
-.mat-edit-icon mat-icon{
-    font-size: 17px;
-}
-.mat-delete-icon mat-icon{
-    font-size: 17px;
-}
-.mat-edit-icon{
-    position: absolute;
-    right: 28px;
-    color: $main-seconday-color;
-}
-
-.mat-delete-icon{
-    position: absolute;
-    right: 50px;
-    color: $main-seconday-color;
+.configurations{
+    padding: 0.4em 1em;
+    .department-title{
+        color: $main-tertiary-color-dark;
+        font-size: 1.1rem;
+        border-bottom: 1px solid lightgrey;
+        width: 100%;
+    }
+    .department-number{
+        color: $main-seconday-color;
+        float: right;
+    }
+    button {
+        color: $main-tertiary-color;
+        .add-icon{
+            color: $main-seconday-color;
+        }
+    }
+    .department-name{
+        display: flex;
+        align-items: center;
+        margin: 0 2em;
+        color: $main-tertiary-color;
+        p{
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgb(240, 240, 240);
+            width: 100%;
+            font-weight: 500;
+        }
+        .business-icon{
+            color: $main-seconday-color;
+            margin-right: 0.6em;
+            font-size: 1rem;
+        }
+        button .more_vert-icon{
+            font-size: 1.2rem;
+        }
+        .menu{
+            button .delete-icon{
+                color: $main-seconday-color;
+            }
+        }
+    }
 }

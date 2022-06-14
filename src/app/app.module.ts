@@ -20,6 +20,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ModalDisplayDetailsComponent } from './components/sidebar/departments/modal-display-details/modal-display-details.component';
 import {MatTreeModule} from '@angular/material/tree';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,7 @@ import {MatTreeModule} from '@angular/material/tree';
     NoopAnimationsModule,
     MatFormFieldModule,
     FormsModule,
-    
+    HttpClientModule,
     MatInputModule,
     MatSidenavModule,
     MatToolbarModule,
